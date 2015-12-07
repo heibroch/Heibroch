@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Heibroch.Common.Mathmatics
+namespace Heibroch.Math
 {
     public static class Axis
     {
