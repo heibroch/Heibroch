@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Maths = System.Math;
 
 namespace Heibroch.Math
 {
@@ -15,8 +16,8 @@ namespace Heibroch.Math
 
             for (var i = minimum; i < maximum; i += valueSpacing)
             {
-                if (!includeZero && Math.Abs(i) < double.Epsilon) continue;
-                tickValues.Add(Math.Round(i / valueSpacing, 0) * valueSpacing);
+                if (!includeZero && Maths.Abs(i) < double.Epsilon) continue;
+                tickValues.Add(Maths.Round(i / valueSpacing, 0) * valueSpacing);
             }
             
             return tickValues;
