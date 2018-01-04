@@ -3,7 +3,7 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" >
-    
+
     <SolidColorBrush x:Key="DefaultButtonBackgroundBrush" Color="#666666" />
     <SolidColorBrush x:Key="DefaultTextForegroundBrush" Color="#FFEFFE" />
     <SolidColorBrush x:Key="DefaultControlBackground" Color="#222222"/>
@@ -60,30 +60,36 @@
                     <Setter Property="Background" Value="#222222"/>
                 </MultiTrigger.Setters>
             </MultiTrigger>
-            
+
             <Trigger Property="IsEnabled" Value="True">
                 <Setter Property="Opacity" Value="1"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value="0.6"/>
             </Trigger>
-            
+
         </Style.Triggers>
     </Style>
-    
+
     <Style x:Key="BasicListBox" TargetType="ListBox">
         <Setter Property="Background" Value="#222222"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Foreground" Value="#FFEFFE"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
     </Style>
-    
+
     <Style x:Key="BasicTextbox" TargetType="TextBox">
         <Setter Property="Height" Value="27"/>
         <Setter Property="Foreground" Value="#FFEFFE"/>
         <Setter Property="Background" Value="#555555"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="BasicCheckbox" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="#FFEFFE"/>
+        <Setter Property="Background" Value="#555555"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
@@ -107,9 +113,9 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        
+
     </Style>
-    
+
     <Style x:Key="BasicTabItem" TargetType="TabItem">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="#444444"/>
@@ -132,7 +138,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="BasicLabel" TargetType="Label">
         <Setter Property="Foreground" Value="#FFEFFE"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
@@ -144,7 +150,7 @@
         <Setter Property="Background" Value="#222222"/>
         <Setter Property="Foreground" Value="#FFEFFE"/>
     </Style>
-    
+
     <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
         <Border x:Name="PART_ContentHost" Focusable="False" Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}" />
     </ControlTemplate>
@@ -263,5 +269,20 @@
                 </Setter>
             </Style>
         </Style.Resources>
+    </Style>
+
+    <Style TargetType="ProgressBar">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsError}" Value="True">
+                <DataTrigger.Setters>
+                    <Setter Property="ProgressBar.Foreground" Value="Red"/>
+                </DataTrigger.Setters>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=IsError}" Value="False">
+                <DataTrigger.Setters>
+                    <Setter Property="ProgressBar.Foreground" Value="ForestGreen"/>
+                </DataTrigger.Setters>
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
