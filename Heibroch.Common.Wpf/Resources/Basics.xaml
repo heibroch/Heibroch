@@ -9,7 +9,24 @@
     <SolidColorBrush x:Key="DefaultControlBackground" Color="#222222"/>
     <SolidColorBrush x:Key="DefaultBackgroundBrush" Color="#444444"/>
 
-    <Style x:Key="BasicButton" TargetType="Button">
+    <Style TargetType="Window">
+        <Setter Property="Background" Value="#333333"/>
+    </Style>
+
+    <Style TargetType="Grid">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource DefaultTextForegroundBrush}"/>
+    </Style>
+
+    <Style TargetType="ListView">
+        <Setter Property="Background" Value="{StaticResource DefaultControlBackground}"/>
+        <Setter Property="Foreground" Value="{StaticResource DefaultTextForegroundBrush}"/>
+    </Style>
+
+    <Style TargetType="Button">
         <Setter Property="Width" Value="120"/>
         <Setter Property="Height" Value="27"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -71,14 +88,14 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="BasicListBox" TargetType="ListBox">
+    <Style TargetType="ListBox">
         <Setter Property="Background" Value="#222222"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Foreground" Value="#FFEFFE"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
     </Style>
 
-    <Style x:Key="BasicTextbox" TargetType="TextBox">
+    <Style TargetType="TextBox">
         <Setter Property="Height" Value="27"/>
         <Setter Property="Foreground" Value="#FFEFFE"/>
         <Setter Property="Background" Value="#555555"/>
@@ -87,13 +104,13 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="BasicCheckbox" TargetType="CheckBox">
+    <Style TargetType="CheckBox">
         <Setter Property="Foreground" Value="#FFEFFE"/>
         <Setter Property="Background" Value="#555555"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="BasicTabControl" TargetType="TabControl">
+    <Style TargetType="TabControl">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
         <Setter Property="Template">
@@ -139,12 +156,12 @@
         </Setter>
     </Style>
 
-    <Style x:Key="BasicLabel" TargetType="Label">
+    <Style TargetType="Label">
         <Setter Property="Foreground" Value="#FFEFFE"/>
         <Setter Property="Margin" Value="2,2,2,2"/>
     </Style>
 
-    <Style x:Key="BasicTreeView" TargetType="TreeView">
+    <Style TargetType="TreeView">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="#222222"/>
