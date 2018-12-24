@@ -12,7 +12,7 @@ namespace Heibroch.Common
         void Publish<T>(T value);
     }
 
-    public class EventBus : IEventBus
+    public class EventBus : IEventBus, IDisposable
     {
         public Dictionary<Type, List<object>> subscribers;
         
@@ -20,7 +20,7 @@ namespace Heibroch.Common
         {
             subscribers = new Dictionary<Type, List<object>>();
         }
-
+        
         public void Publish<T>(T value)
         {
             var type = typeof(T);
@@ -57,6 +57,11 @@ namespace Heibroch.Common
             if (!actionList.Contains(action)) return;
 
             actionList.Remove(action);
+        }
+
+        public void Dispose()
+        {
+            subscribers = null;
         }
 
         private void Try<T>(Action<T> action, T value)

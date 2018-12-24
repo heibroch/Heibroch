@@ -13,7 +13,7 @@ namespace Heibroch.Common.Wpf
         WM_RBUTTONUP = 0x0205
     }
 
-    public static class MouseHook
+    public static class MouseHook 
     {
         public static event EventHandler LeftMouseButtonDown = null;
         public static event EventHandler LeftMouseButtonUp = null;
