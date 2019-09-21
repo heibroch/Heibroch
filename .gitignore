@@ -187,4 +187,5 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
-/.vs/Heibroch.Platform/v15/Server/sqlite3
+/.vs/**
+/.vs/Heibroch.Platform/DesignTimeBuild/
