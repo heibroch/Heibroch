@@ -16,6 +16,8 @@ namespace Heibroch.Infrastructure.Messaging
         void Subscribe<T>(Action<object> action) where T : IMessage;
 
         void Unsubscribe<T>(Action<object> action) where T : IMessage;
+
+        void RegisterNetworkService(string serviceName);
     }
 
     public class MessageBus : IMessageBus
@@ -33,8 +35,12 @@ namespace Heibroch.Infrastructure.Messaging
             networkMessageBus = new NetworkMessageBus();
 
             networkServices = new List<string>();
-            networkServices.Add("EmployeeService");
-            networkServices.Add("ManagerService");
+        }
+
+        public void RegisterNetworkService(string serviceName)
+        {
+            if (networkServices.Contains(serviceName)) return;
+            networkServices.Add(serviceName);
         }
 
         public void Send<T>(T message) where T : IMessage
