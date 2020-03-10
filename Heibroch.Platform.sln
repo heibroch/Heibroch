@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heibroch.Common.Wpf", "Heib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heibroch.Math", "Heibroch.Math\Heibroch.Math.csproj", "{46DA6E94-A4F8-44B7-A535-5165DD6DC8EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heibroch.Infrastructure.Messaging", "Heibroch.Infrastructure.Messaging\Heibroch.Infrastructure.Messaging.csproj", "{4222D95F-5AD6-4FE3-AC30-EBC24802C054}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heibroch.Infrastructure.Messaging", "Heibroch.Infrastructure.Messaging\Heibroch.Infrastructure.Messaging.csproj", "{4222D95F-5AD6-4FE3-AC30-EBC24802C054}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heibroch.WindowsInteractivity", "Heibroch.WindowsInteractivity\Heibroch.WindowsInteractivity.csproj", "{63F65FE0-AB06-49FF-B491-71EB6BBAE2D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4222D95F-5AD6-4FE3-AC30-EBC24802C054}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4222D95F-5AD6-4FE3-AC30-EBC24802C054}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4222D95F-5AD6-4FE3-AC30-EBC24802C054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63F65FE0-AB06-49FF-B491-71EB6BBAE2D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63F65FE0-AB06-49FF-B491-71EB6BBAE2D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63F65FE0-AB06-49FF-B491-71EB6BBAE2D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63F65FE0-AB06-49FF-B491-71EB6BBAE2D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
