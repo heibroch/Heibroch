@@ -13,9 +13,9 @@ namespace Heibroch.WindowsInteractivity
 
     public sealed class KeyboardInterop
     {
-        public static event EventHandler KeyPressed;
+        public static event EventHandler<KeyPressed> KeyPressed;
         private static KeyboardInteropInternal keyboardInteropInternal = new KeyboardInteropInternal();
-        private static void OnClipboardUpdate(KeyPressed keyPressed, EventArgs e) => KeyPressed?.Invoke(keyPressed, e);
+        private static void OnClipboardUpdate(KeyPressed keyPressed) => KeyPressed?.Invoke(null, keyPressed);
 
         private class KeyboardInteropInternal
         {
@@ -53,7 +53,7 @@ namespace Heibroch.WindowsInteractivity
                 {
                     var globalKeyPressed = new KeyPressed() { Key = Marshal.ReadInt32(lParam) };
 
-                    OnClipboardUpdate(globalKeyPressed, new EventArgs());
+                    OnClipboardUpdate(globalKeyPressed);
 
                     if (!globalKeyPressed.ProcessKey) return new IntPtr(1);
                 }
