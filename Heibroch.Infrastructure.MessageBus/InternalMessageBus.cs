@@ -24,9 +24,12 @@ namespace Heibroch.Infrastructure.Messaging
             var type = typeof(T);
 
             if (value.LogEvent)
-                internalLogger.LogInfo(value.ToString());
-
-            if (!subscribers.ContainsKey(type)) return;
+            {
+                if (subscribers.ContainsKey(type))
+                    internalLogger.LogInfo(value.ToString());
+                else
+                    internalLogger.LogInfo(value.ToString() + " (no internal subscribers)");
+            }
 
             foreach (var actionOjbect in subscribers[type])
             {
