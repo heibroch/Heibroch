@@ -31,6 +31,8 @@ namespace Heibroch.Infrastructure.Messaging
                     internalLogger.LogInfo(value.ToString() + " (no internal subscribers)");
             }
 
+            if (!subscribers.ContainsKey(type)) return;
+            
             foreach (var actionOjbect in subscribers[type])
             {
                 var action = (Action<T>)actionOjbect;
