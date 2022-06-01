@@ -19,11 +19,11 @@ namespace Heibroch.Infrastructure.Messaging
             subscribers = new ConcurrentDictionary<Type, List<object>>();            
         }
 
-        public void Publish<T>(T value) where T : IInternalEvent
+        public void Publish<T>(T value) where T : IInternalMessage
         {
             var type = typeof(T);
 
-            if (value.LogEvent)
+            if (value.LogPublish)
             {
                 if (subscribers.ContainsKey(type))
                     internalLogger.LogInfo(value.ToString());
@@ -38,7 +38,7 @@ namespace Heibroch.Infrastructure.Messaging
             }
         }
 
-        public void Subscribe<T>(Action<T> action) where T : IInternalEvent
+        public void Subscribe<T>(Action<T> action) where T : IInternalMessage
         {
             var type = typeof(T);
 
@@ -51,7 +51,7 @@ namespace Heibroch.Infrastructure.Messaging
             actionList.Add(action);
         }
 
-        public void Unsubscribe<T>(Action<T> action) where T : IInternalEvent
+        public void Unsubscribe<T>(Action<T> action) where T : IInternalMessage
         {
             var type = typeof(T);
 
