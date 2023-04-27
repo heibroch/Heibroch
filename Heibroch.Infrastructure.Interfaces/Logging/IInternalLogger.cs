@@ -4,6 +4,8 @@ namespace Heibroch.Infrastructure.Interfaces.Logging
 {
     public interface IInternalLogger
     {
+        bool IsFailingLogging { get; set; }
+
         void LogInfo(string message);
 
         void LogWarning(string message);

@@ -5,16 +5,49 @@ namespace Heibroch.Infrastructure.Logging
 {
     public class InternalLogger : IInternalLogger
     {
-        public Action<string> LogInfoAction { get; set; } = x => Console.WriteLine(x);
-        
+        public bool IsFailingLogging { get; set; }
+
+        public Action<string> LogInfoAction { get; set; } = x => Console.WriteLine(x);        
         public Action<string> LogWarningAction { get; set; } = x => Console.WriteLine(x);
-
         public Action<string> LogErrorAction { get; set; } = x => Console.WriteLine(x);
+        
+        public void LogError(string message)
+        {
+            try
+            {
+                if (IsFailingLogging) return;
+                LogErrorAction(message); 
+            } 
+            catch
+            {
+                IsFailingLogging = true;
+            }            
+        }
 
-        public void LogError(string message) => LogErrorAction(message);
+        public void LogInfo(string message)
+        {
+            try
+            {
+                if (IsFailingLogging) return;
+                LogInfoAction(message);
+            }
+            catch
+            {
+                IsFailingLogging = true;
+            }
+        }
 
-        public void LogInfo(string message) => LogInfoAction(message);
-
-        public void LogWarning(string message) => LogWarningAction(message);
+        public void LogWarning(string message)
+        {
+            try
+            {
+                if (IsFailingLogging) return;
+                LogWarningAction(message);
+            }
+            catch
+            {
+                IsFailingLogging = true;
+            }            
+        }
     }
 }
